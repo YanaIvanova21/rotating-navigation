@@ -33,9 +33,9 @@ body {
   left: -100px;
 }
 
-.container.show-nav .circle {
+.container.show-nav + .circle-container {
   /*якщо контейнер матиме клас шоу-нав, то потрібно повернути коло на 70 градусів*/
-  transform: rotate(-70deg);
+  transform: rotate(-90deg);
 }
 
 .circle {
@@ -73,7 +73,7 @@ body {
   transform-origin: top left;
 }
 
-.container.show-nav + nav li {
+.container.show-nav ~ nav li {
   transform: translateX(
     0
   ); /*повертає навігейшн-бар на місце після того, як головний контейнер був повернутий на 20 градусів*/
