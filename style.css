@@ -1,16 +1,139 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  display: flex; /*розміщення блоків-дітей в одному рядку*/
-  flex-direction: column; /*розміщення блоків-дітей в один під одним*/
-  align-items: center; /*розміщення блоків-дітей посередині відносно боків*/
-  justify-content: center; /*розміщення блоків-дітей посередині відносно низу та верху*/
-  height: 100vh; /*надання розміри (висоти) для елемента body на 100% висоти сторінки браузера*/
-  overflow: hidden; /*приховує скрол-бар за замовчуванням*/
+  font-family: "Lato", sans-serif;
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden; /*приховує лише горизонтальний скрол-бар*/
   margin: 0;
+}
+
+.container {
+  background-color: white;
+  transform-origin: top left; /*поки що не розумію, де краще розмістити цей код*/
+  transition: transform 0.5s linear; /*поки що не розумію, де краще розмістити цей код*/
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.container.show-nav {
+  transform: rotate(
+    -20deg
+  ); /*якщо контейнер матиме клас шоу-нав, то його потрібно повернути на 20 градусів*/
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: rgb(15, 52, 189);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.circle button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+  transform: translateX(
+    0
+  ); /*повертає навігейшн-бар на місце після того, як головний контейнер був повернутий на 20 градусів*/
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 1;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: white;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li + li {
+  margin-left: 15px; /* додаємо маржин для всіх елементів списку, які йдуть після 1-го елементу списку*/
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px; /* додаємо маржин для всіх елементів списку, які йдуть після 2-го елементу списку*/
+  transform: translateX(-200%);
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
