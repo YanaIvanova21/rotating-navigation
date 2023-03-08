@@ -14,8 +14,8 @@ body {
 
 .container {
   background-color: white;
-  transform-origin: top left; /*поки що не розумію, де краще розмістити цей код*/
-  transition: transform 0.5s linear; /*поки що не розумію, де краще розмістити цей код*/
+  transform-origin: top left;
+  transition: transform 0.5s linear;
   width: 100vw;
   min-height: 100vh;
   padding: 50px;
@@ -31,6 +31,11 @@ body {
   position: fixed;
   top: -100px;
   left: -100px;
+}
+
+.container.show-nav .circle {
+  /*якщо контейнер матиме клас шоу-нав, то потрібно повернути коло на 70 градусів*/
+  transform: rotate(-70deg);
 }
 
 .circle {
